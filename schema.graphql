@@ -23,6 +23,22 @@ type BuyShare @entity(immutable: true) {
   transactionHash: Bytes!
 }
 
+type UserMarketRelation @entity {
+  id: ID! # address
+  user: Bytes! # address
+  market: BigInt! # uint256
+  balance: BigInt! # uint256
+}
+
+type MarketPrice @entity {
+  id: ID! # marketId uint256 converted in bytes
+  marketId: BigInt! # uint256
+  buyPrice: BigInt! # uint256
+  sellPrice: BigInt! # uint256
+  shares: BigInt! # uint256
+  lastUpdated: BigInt! # uint256
+}
+
 type ClaimedCreatorFee @entity(immutable: true) {
   id: Bytes!
   creator: Bytes! # address
