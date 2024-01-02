@@ -1,0 +1,8 @@
+{
+  "base-testnet": {
+    "HandelNetwork": {
+      "address": "0x6bF80ee0353c9D9B17c1eF1F2540AB297E8e70Ab",
+      "startBlock": 14495242
+    }
+  }
+}

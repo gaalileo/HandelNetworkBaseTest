@@ -1,0 +1,110 @@
+type BonusAdded @entity(immutable: true) {
+  id: Bytes!
+  amount: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type BuyShare @entity(immutable: true) {
+  id: Bytes!
+  marketId: BigInt! # uint256
+  buyer: Bytes! # address
+  qty: BigInt! # uint256
+  newSupply: BigInt! # uint256
+  pricePaid: BigInt! # uint256
+  protocolFee: BigInt! # uint256
+  ownerFee: BigInt! # uint256
+  creatorFee: BigInt! # uint256
+  rewardFee: BigInt! # uint256
+  reflectionFee: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type ClaimedCreatorFee @entity(immutable: true) {
+  id: Bytes!
+  creator: Bytes! # address
+  beneficiary: Bytes! # address
+  claimedFees: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type ClaimedOwnerFee @entity(immutable: true) {
+  id: Bytes!
+  marketId: BigInt! # uint256
+  beneficiary: Bytes! # address
+  claimedFees: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type ClaimedReflectionFee @entity(immutable: true) {
+  id: Bytes!
+  marketIds: BigInt! # uint256
+  beneficiary: Bytes! # address
+  claimedFees: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type ClaimedReward @entity(immutable: true) {
+  id: Bytes!
+  marketId: BigInt! # uint256
+  beneficiary: Bytes! # address
+  claimedRewards: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type OwnershipTransferred @entity(immutable: true) {
+  id: Bytes!
+  previousOwner: Bytes! # address
+  newOwner: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type OwnershipVerified @entity(immutable: true) {
+  id: Bytes!
+  marketId: BigInt! # uint256
+  newOwner: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type RewardsOffered @entity(immutable: true) {
+  id: Bytes!
+  marketId: BigInt! # uint256
+  amount: BigInt! # uint256
+  pendingRewardsInHand: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type SellShare @entity(immutable: true) {
+  id: Bytes!
+  marketId: BigInt! # uint256
+  seller: Bytes! # address
+  qty: BigInt! # uint256
+  newSupply: BigInt! # uint256
+  priceReceived: BigInt! # uint256
+  dividendsAdded: BigInt! # uint256
+  protocolFee: BigInt! # uint256
+  ownerFee: BigInt! # uint256
+  creatorFee: BigInt! # uint256
+  rewardFee: BigInt! # uint256
+  reflectionFee: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}

@@ -1,0 +1,51 @@
+specVersion: 0.0.5
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: HandelNetwork
+    network: base-testnet
+    source:
+      address: "0x6bF80ee0353c9D9B17c1eF1F2540AB297E8e70Ab"
+      abi: HandelNetwork
+      startBlock: 14495242
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - BonusAdded
+        - BuyShare
+        - ClaimedCreatorFee
+        - ClaimedOwnerFee
+        - ClaimedReflectionFee
+        - ClaimedReward
+        - OwnershipTransferred
+        - OwnershipVerified
+        - RewardsOffered
+        - SellShare
+      abis:
+        - name: HandelNetwork
+          file: ./abis/HandelNetwork.json
+      eventHandlers:
+        - event: BonusAdded(uint256)
+          handler: handleBonusAdded
+        - event: BuyShare(uint256,address,uint256,uint256,uint256,uint256,uint256,uint256,uint256,uint256)
+          handler: handleBuyShare
+        - event: ClaimedCreatorFee(address,address,uint256)
+          handler: handleClaimedCreatorFee
+        - event: ClaimedOwnerFee(uint256,address,uint256)
+          handler: handleClaimedOwnerFee
+        - event: ClaimedReflectionFee(uint256,address,uint256)
+          handler: handleClaimedReflectionFee
+        - event: ClaimedReward(uint256,address,uint256)
+          handler: handleClaimedReward
+        - event: OwnershipTransferred(indexed address,indexed address)
+          handler: handleOwnershipTransferred
+        - event: OwnershipVerified(uint256,address)
+          handler: handleOwnershipVerified
+        - event: RewardsOffered(uint256,uint256,uint256)
+          handler: handleRewardsOffered
+        - event: SellShare(uint256,address,uint256,uint256,uint256,uint256,uint256,uint256,uint256,uint256,uint256)
+          handler: handleSellShare
+      file: ./src/handel-network.ts
